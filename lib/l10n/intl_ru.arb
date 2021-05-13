@@ -1,0 +1,18 @@
+{
+  "@@locale": "ru",
+  "auth": "Авторизация",
+  "email": "Email",
+  "password": "Пароль",
+  "login": "Войти",
+  "register": "Зарегистрироваться",
+  "registration": "Регистрация",
+  "user_agreement": "Я ознакомился с политикой конфиденциальности и готов получать рекламную информацию",
+  "not_registered_yet": "Ещё не зарегистрированы?",
+  "already_registered": "Уже зарегистрированы?",
+  "forgot_your_password": "Забыли пароль?",
+  "email_is_incorrect": "Адрес электронной почты недействителен",
+  "fill_in_all_the_required_data": "Заполните все необходимые данные",
+  "password_is_too_short": "Пароль слишком короткий",
+  "account_of_such_data_does_not_exist": "Аккаунта с такими данными не существует",
+  "invalid_password": "Неверный пароль"
+}

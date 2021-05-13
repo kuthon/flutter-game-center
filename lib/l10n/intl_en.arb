@@ -1,0 +1,18 @@
+{
+  "@@locale": "en",
+  "auth": "Authorization",
+  "email": "Email",
+  "password": "Password",
+  "login": "Login",
+  "register": "Register",
+  "registration": "Registration",
+  "user_agreement": "I have read the privacy policy and am ready to receive advertising information",
+  "not_registered_yet": "Not registered yet?",
+  "already_registered": "Already registered?",
+  "forgot_your_password": "Forgot your password?",
+  "email_is_incorrect": "Email is incorrect",
+  "fill_in_all_the_required_data": "Fill in all the required data",
+  "password_is_too_short": "Password is too short",
+  "account_of_such_data_does_not_exist": "Account of such data does not exist",
+  "invalid_password": "Invalid password"
+}

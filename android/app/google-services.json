@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "467666584486",
+    "project_id": "cocos-game-dfd74",
+    "storage_bucket": "cocos-game-dfd74.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467666584486:android:26146daa5407f2ffa44567",
+        "android_client_info": {
+          "package_name": "kython.cocos_game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467666584486-r91gf2nkh7uvmejgt67k0jpdheqij09o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRa62Bt11yK2NDbI3nTt7y2Pv7aHwcMkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467666584486-r91gf2nkh7uvmejgt67k0jpdheqij09o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
