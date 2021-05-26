@@ -1,4 +1,4 @@
-import 'package:cocos_game/pages/landing_page.dart';
+import 'package:cocos_game/pages/start_app_page.dart';
 import 'package:cocos_game/services/auth_service.dart';
 import 'package:cocos_game/themes/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,7 +22,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<User>.value(
+    return StreamProvider<User?>.value(
       initialData: null,
       value: AuthService().currentUser,
       child: MaterialApp(

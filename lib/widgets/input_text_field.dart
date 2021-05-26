@@ -6,11 +6,11 @@ class InputTextField extends StatefulWidget {
   final TextEditingController textEditingController;
   final String hint;
   final bool obscure;
-  final Widget counter;
+  final Widget? counter;
 
   const InputTextField({
     this.counter,
-    this.textEditingController,
+    required this.textEditingController,
     this.hint = '',
     this.obscure = false
   });
@@ -22,12 +22,12 @@ class InputTextField extends StatefulWidget {
 class _InputTextFieldState extends State<InputTextField> {
   final TextEditingController textEditingController;
   final bool canChangeObscure;
-  final Widget counter;
+  final Widget? counter;
   bool obscure;
   final String hint;
-  IconData icon;
+  late IconData icon;
 
-  _InputTextFieldState({this.counter, this.canChangeObscure, this.textEditingController, this.obscure, this.hint});
+  _InputTextFieldState({this.counter, required this.canChangeObscure, required this.textEditingController, required this.obscure, required this.hint});
 
   @override
   void initState(){

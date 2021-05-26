@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData theme = ThemeData(
   backgroundColor: Colors.white,
-  primaryColor: Color.fromRGBO(190, 190, 190, 1),
+  primaryColor: Color.fromRGBO(64, 64, 64, 1),
   accentColor: Color.fromRGBO(47, 127, 240, 1),
   shadowColor: Colors.grey.withOpacity(0.5),
   textTheme: TextTheme(
@@ -41,6 +41,7 @@ ThemeData theme = ThemeData(
         fontSize: 15,
         fontWeight: FontWeight.w500
     ),
+
 
   ),
   buttonTheme: ButtonThemeData(

@@ -3,49 +3,43 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthService {
 
   final FirebaseAuth _fAuth = FirebaseAuth.instance;
-  FirebaseAuthException error;
 
-  Future<User> signInWithEmailAndPassword(String email, String password ) async {
+  Future signInWithEmailAndPassword(String email, String password ) async {
     try{
       UserCredential result = await _fAuth.signInWithEmailAndPassword(email: email, password: password);
-      User user = result.user;
+      User? user = result.user;
       return user;
-    } catch (e) {
-      error = e;
-      print('\nsignInWithEmailAndPassword error: ${e.code}\n');
+    } on FirebaseAuthException catch (e) {
+      throw e.code;
     }
-
-    return null;
   }
 
 
-  Future<User> registerWithEmailAndPassword(String email, String password ) async {
+  Future registerWithEmailAndPassword(String email, String password ) async {
     try{
       UserCredential result = await _fAuth.createUserWithEmailAndPassword(email: email, password: password);
-      User user = result.user;
+      User? user = result.user;
       return user;
-    } catch (e) {
-      error = e;
-      print('\nregisterWithEmailAndPassword error: ${e.code}\n');
+    } on FirebaseAuthException catch (e) {
+      throw e.code;
     }
-    return null;
   }
 
-  Future<void> logOut() async {
+  void logOut() async {
     await _fAuth.signOut();
   }
 
-  Future<void> sendPasswordResetEmail({String email}) async{
+  Future sendPasswordResetEmail({required String email}) async{
     try {
-      _fAuth.sendPasswordResetEmail(email: email);
-    }catch(e){
-      error = e;
-      print('sendPasswordResetEmail: ${e.code}');
+      await _fAuth.sendPasswordResetEmail(email: email);
+    }  on FirebaseAuthException  catch (e) {
+      print('error: ${e.code}');
+      throw e.code;
     }
   }
 
-  Stream<User> get currentUser {
-    return _fAuth.authStateChanges().map((User user) => user);
+  Stream<User?> get currentUser {
+    return _fAuth.authStateChanges().map((User? user) => user);
   }
 
 }

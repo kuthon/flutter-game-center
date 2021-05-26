@@ -7,7 +7,7 @@
 // ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
-// ignore_for_file:unused_import, file_names
+// ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
 
 import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
@@ -20,21 +20,36 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static _notInlinedMessages(_) => <String, Function> {
-    "account_of_such_data_does_not_exist" : MessageLookupByLibrary.simpleMessage("Аккаунта с такими данными не существует"),
-    "already_registered" : MessageLookupByLibrary.simpleMessage("Уже зарегистрированы?"),
-    "auth" : MessageLookupByLibrary.simpleMessage("Авторизация"),
-    "email" : MessageLookupByLibrary.simpleMessage("Email"),
-    "email_is_incorrect" : MessageLookupByLibrary.simpleMessage("Адрес электронной почты недействителен"),
-    "fill_in_all_the_required_data" : MessageLookupByLibrary.simpleMessage("Заполните все необходимые данные"),
-    "forgot_your_password" : MessageLookupByLibrary.simpleMessage("Забыли пароль?"),
-    "invalid_password" : MessageLookupByLibrary.simpleMessage("Неверный пароль"),
-    "login" : MessageLookupByLibrary.simpleMessage("Войти"),
-    "not_registered_yet" : MessageLookupByLibrary.simpleMessage("Ещё не зарегистрированы?"),
-    "password" : MessageLookupByLibrary.simpleMessage("Пароль"),
-    "password_is_too_short" : MessageLookupByLibrary.simpleMessage("Пароль слишком короткий"),
-    "register" : MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
-    "registration" : MessageLookupByLibrary.simpleMessage("Регистрация"),
-    "user_agreement" : MessageLookupByLibrary.simpleMessage("Я ознакомился с политикой конфиденциальности и готов получать рекламную информацию")
-  };
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account_of_such_data_does_not_exist":
+            MessageLookupByLibrary.simpleMessage(
+                "Аккаунта с такими данными не существует"),
+        "already_registered":
+            MessageLookupByLibrary.simpleMessage("Уже зарегистрированы?"),
+        "auth": MessageLookupByLibrary.simpleMessage("Авторизация"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "email_is_incorrect": MessageLookupByLibrary.simpleMessage(
+            "Адрес электронной почты недействителен"),
+        "fill_in_all_the_required_data": MessageLookupByLibrary.simpleMessage(
+            "Заполните все необходимые данные"),
+        "forgot_your_password":
+            MessageLookupByLibrary.simpleMessage("Забыли пароль?"),
+        "invalid_password":
+            MessageLookupByLibrary.simpleMessage("Неверный пароль"),
+        "login": MessageLookupByLibrary.simpleMessage("Войти"),
+        "not_registered_yet":
+            MessageLookupByLibrary.simpleMessage("Ещё не зарегистрированы?"),
+        "password": MessageLookupByLibrary.simpleMessage("Пароль"),
+        "password_is_too_short":
+            MessageLookupByLibrary.simpleMessage("Пароль слишком короткий"),
+        "register": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
+        "registration": MessageLookupByLibrary.simpleMessage("Регистрация"),
+        "sent_account_recovery_instruction": MessageLookupByLibrary.simpleMessage(
+            "На указанную почту отправлена инструкиця по восстановлению аккаунта"),
+        "user_agreement": MessageLookupByLibrary.simpleMessage(
+            "Я ознакомился с политикой конфиденциальности и готов получать рекламную информацию"),
+        "user_with_such_data_already_exists":
+            MessageLookupByLibrary.simpleMessage(
+                "Пользователь с такими данными уже существует")
+      };
 }

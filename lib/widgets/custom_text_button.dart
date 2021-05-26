@@ -4,8 +4,9 @@ class CustomTextButton extends StatelessWidget {
 
   final Function onTap;
   final String title;
+  final bool canPress;
 
-  const CustomTextButton({Key key, this.onTap, this.title}) : super(key: key);
+  const CustomTextButton({required this.onTap, required this.title, this.canPress = true});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +16,24 @@ class CustomTextButton extends StatelessWidget {
         minWidth: double.infinity,
         minHeight: 55,
       ),
-      onPressed: () => onTap(),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.headline2,
+      onPressed: !canPress ? null : () => onTap(),
+      child: RichText(
+        text: TextSpan(
+          style: Theme.of(context).textTheme.headline2,
+          children: [
+            if (!canPress)
+              WidgetSpan(
+                  child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Icon(Icons.lock, color: Theme.of(context).textTheme.headline2!.color,)
+                  )
+              ),
+            TextSpan(text: title)
+          ]
+        ),
+
       ),
-      fillColor: Theme.of(context).accentColor,
+      fillColor: canPress ? Theme.of(context).accentColor : Theme.of(context).primaryColor.withOpacity(0.6),
       shape: Theme.of(context).buttonTheme.shape,
     );
   }

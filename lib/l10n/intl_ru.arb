@@ -14,5 +14,7 @@
   "fill_in_all_the_required_data": "Заполните все необходимые данные",
   "password_is_too_short": "Пароль слишком короткий",
   "account_of_such_data_does_not_exist": "Аккаунта с такими данными не существует",
-  "invalid_password": "Неверный пароль"
+  "invalid_password": "Неверный пароль",
+  "sent_account_recovery_instruction": "На указанную почту отправлена инструкиця по восстановлению аккаунта",
+  "user_with_such_data_already_exists": "Пользователь с такими данными уже существует"
 }

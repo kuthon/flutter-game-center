@@ -1,14 +1,14 @@
 import 'package:cocos_game/generated/l10n.dart';
 import 'package:cocos_game/widgets/show_toast.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ErrorHandler {
   final BuildContext context;
-  final FirebaseAuthException error;
-  String msg;
-  ErrorHandler({this.error, this.context}) {
-    switch (error.code) {
+  final String error;
+  late String msg;
+  ErrorHandler({required this.error, required this.context}) {
+    print('error: $error');
+    switch (error) {
       case 'invalid-email':
         msg = S.of(context).email_is_incorrect;
         break;
@@ -24,8 +24,11 @@ class ErrorHandler {
       case 'wrong-password':
         msg = S.of(context).invalid_password;
         break;
+      case 'email-already-in-use':
+        msg = S.of(context).user_with_such_data_already_exists;
+        break;
       default:
-        msg = error.code;
+        msg = error;
     }
   }
 

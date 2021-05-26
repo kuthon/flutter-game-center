@@ -26,17 +26,20 @@ class _AuthPageState extends State<AuthPage> {
   Widget build(BuildContext context) {
 
     void _login() async{
-      User user = await _authService.signInWithEmailAndPassword(_loginEditingController.text, _passwordEditingController.text);
-      if (user == null){
-        ErrorHandler(error: _authService.error, context: context).showErrorMessage();
-      }
+        await _authService.signInWithEmailAndPassword(_loginEditingController.text.trim(), _passwordEditingController.text.trim())
+          .catchError((e) => ErrorHandler(error: e, context: context).showErrorMessage());
     }
 
     void _register() async{
-      User user = await _authService.registerWithEmailAndPassword(_loginEditingController.text, _passwordEditingController.text);
-      if (user == null){
-        ErrorHandler(error: _authService.error, context: context).showErrorMessage();
-      }
+        await _authService.registerWithEmailAndPassword(_loginEditingController.text.trim(), _passwordEditingController.text.trim())
+          .catchError((e) => ErrorHandler(error: e, context: context).showErrorMessage());
+    }
+
+    void _forgotPassword() async{
+        await _authService.sendPasswordResetEmail(email: _loginEditingController.text.trim())
+            .catchError((e) => ErrorHandler(error: e, context: context).showErrorMessage());
+
+
     }
 
     Widget _agreementCheckBox = Container(
@@ -49,7 +52,7 @@ class _AuthPageState extends State<AuthPage> {
                   value: isAgreement,
                   onChanged: (newValue) {
                     setState(() {
-                      isAgreement = newValue;
+                      isAgreement = !isAgreement;
                     });
                   }),
               Expanded(
@@ -96,7 +99,7 @@ class _AuthPageState extends State<AuthPage> {
                       child: Align(
                         alignment: Alignment.topRight,
                         child: TextButton(
-                            onPressed: () { _authService.sendPasswordResetEmail(email: _loginEditingController.text); },
+                            onPressed: () => _forgotPassword(),
                             child: Text(
                               S.of(context).forgot_your_password,
                               style: Theme.of(context).textTheme.headline4,
@@ -132,7 +135,9 @@ class _AuthPageState extends State<AuthPage> {
                         title: S.of(context).register, onTap: () {
                           if (isAgreement)
                               _register();
-                        }),
+                          },
+                        canPress: isAgreement,
+                        ),
                     TextButton(
                         onPressed: () { setState(() { showLoginPage = true; });},
                         child: Text(
