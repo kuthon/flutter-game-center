@@ -219,6 +219,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Global сhat`
+  String get global_chat {
+    return Intl.message(
+      'Global сhat',
+      name: 'global_chat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chat`
+  String get chat {
+    return Intl.message(
+      'Chat',
+      name: 'chat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Games`
+  String get games {
+    return Intl.message(
+      'Games',
+      name: 'games',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message(
+      'Profile',
+      name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

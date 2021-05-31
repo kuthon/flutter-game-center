@@ -1,3 +1,4 @@
+import 'package:cocos_game/domain/user_domain.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
@@ -6,9 +7,7 @@ class AuthService {
 
   Future signInWithEmailAndPassword(String email, String password ) async {
     try{
-      UserCredential result = await _fAuth.signInWithEmailAndPassword(email: email, password: password);
-      User? user = result.user;
-      return user;
+      await _fAuth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       throw e.code;
     }
@@ -17,9 +16,7 @@ class AuthService {
 
   Future registerWithEmailAndPassword(String email, String password ) async {
     try{
-      UserCredential result = await _fAuth.createUserWithEmailAndPassword(email: email, password: password);
-      User? user = result.user;
-      return user;
+      await _fAuth.createUserWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       throw e.code;
     }
@@ -33,13 +30,12 @@ class AuthService {
     try {
       await _fAuth.sendPasswordResetEmail(email: email);
     }  on FirebaseAuthException  catch (e) {
-      print('error: ${e.code}');
       throw e.code;
     }
   }
 
-  Stream<User?> get currentUser {
-    return _fAuth.authStateChanges().map((User? user) => user);
+  Stream<UserDomain?> get currentUser {
+    return _fAuth.authStateChanges().map((User? user) => user != null ? UserDomain.fromFirebase(user) : null);
   }
 
 }

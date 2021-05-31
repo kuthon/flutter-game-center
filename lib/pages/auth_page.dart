@@ -3,7 +3,6 @@ import 'package:cocos_game/services/auth_service.dart';
 import 'package:cocos_game/services/error_handler.dart';
 import 'package:cocos_game/widgets/custom_text_button.dart';
 import 'package:cocos_game/widgets/input_text_field.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 

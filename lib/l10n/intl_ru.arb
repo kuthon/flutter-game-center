@@ -16,5 +16,9 @@
   "account_of_such_data_does_not_exist": "Аккаунта с такими данными не существует",
   "invalid_password": "Неверный пароль",
   "sent_account_recovery_instruction": "На указанную почту отправлена инструкиця по восстановлению аккаунта",
-  "user_with_such_data_already_exists": "Пользователь с такими данными уже существует"
+  "user_with_such_data_already_exists": "Пользователь с такими данными уже существует",
+  "global_chat": "Глобальный чат",
+  "chat": "Чат",
+  "games": "Игры",
+  "profile": "Профиль"
 }

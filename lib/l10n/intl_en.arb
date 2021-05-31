@@ -16,5 +16,9 @@
   "account_of_such_data_does_not_exist": "Account of such data does not exist",
   "invalid_password": "Invalid password",
   "sent_account_recovery_instruction": "An account recovery instruction has been sent to the specified mail",
-  "user_with_such_data_already_exists": "A user with such data already exists"
+  "user_with_such_data_already_exists": "A user with such data already exists",
+  "global_chat": "Global сhat",
+  "chat": "Chat",
+  "games": "Games",
+  "profile": "Profile"
 }

@@ -45,7 +45,7 @@ ThemeData theme = ThemeData(
 
   ),
   buttonTheme: ButtonThemeData(
-    buttonColor: Colors.blue,
+    buttonColor: Color.fromRGBO(47, 127, 240, 1),
     textTheme: ButtonTextTheme.accent,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(30),

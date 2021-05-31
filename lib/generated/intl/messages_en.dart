@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "already_registered":
             MessageLookupByLibrary.simpleMessage("Already registered?"),
         "auth": MessageLookupByLibrary.simpleMessage("Authorization"),
+        "chat": MessageLookupByLibrary.simpleMessage("Chat"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "email_is_incorrect":
             MessageLookupByLibrary.simpleMessage("Email is incorrect"),
@@ -34,6 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Fill in all the required data"),
         "forgot_your_password":
             MessageLookupByLibrary.simpleMessage("Forgot your password?"),
+        "games": MessageLookupByLibrary.simpleMessage("Games"),
+        "global_chat": MessageLookupByLibrary.simpleMessage("Global сhat"),
         "invalid_password":
             MessageLookupByLibrary.simpleMessage("Invalid password"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -42,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "password_is_too_short":
             MessageLookupByLibrary.simpleMessage("Password is too short"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
         "sent_account_recovery_instruction": MessageLookupByLibrary.simpleMessage(

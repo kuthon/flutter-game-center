@@ -1,3 +1,5 @@
+import 'package:cocos_game/generated/l10n.dart';
+import 'package:cocos_game/pages/chat_page.dart';
 import 'package:cocos_game/services/auth_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,13 +13,25 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  int _currentIndex = 0;
+  int _currentIndex = 1;
   late PageController _pageController;
+  late final List<String> tabs;
+  String? appBarTitle;
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController();
+    _pageController = PageController(initialPage: _currentIndex);
+
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      tabs = [
+        S.of(context).global_chat,
+        S.of(context).games,
+        S.of(context).profile
+      ];
+      appBarTitle = tabs[_currentIndex];
+    });
+
   }
 
   @override
@@ -26,24 +40,32 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
+        elevation: 3,
+        shadowColor: Theme.of(context).primaryColor.withOpacity(0.5),
         backgroundColor: Theme.of(context).backgroundColor,
-        title: Center(child: Text('HomePage', style: Theme.of(context).textTheme.headline1,)),
+        title: Center(
+            child: Text(appBarTitle ?? S.of(context).games,
+            style: Theme.of(context).textTheme.headline1,
+            )
+        ),
       ),
 
       body: SizedBox.expand(
         child: PageView(
           controller: _pageController,
           onPageChanged: (index) {
-            setState(() => _currentIndex = index);
+            setState(() {
+              _currentIndex = index;
+              appBarTitle = tabs[index];
+            });
           },
           children: <Widget>[
-            Container(color: Colors.blueGrey,),
+            ChatPage(),
             Container(color: Colors.red,),
             Container(color: Colors.green, child: TextButton(child: Text('da'), onPressed: ()=> AuthService().logOut(),),),
           ],
@@ -52,6 +74,7 @@ class _HomePageState extends State<HomePage> {
 
        bottomNavigationBar:
       GNav(
+          rippleColor: Theme.of(context).accentColor.withOpacity(0.3),
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           selectedIndex: _currentIndex,
           hoverColor: Theme.of(context).primaryColor.withOpacity(0.5), // tab button hover color
@@ -65,25 +88,26 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Theme.of(context).backgroundColor,
           iconSize: 26, // tab button icon size
           tabBackgroundColor: Theme.of(context).backgroundColor, // selected tab background color
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), // navigation bar padding
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10), // navigation bar padding
           onTabChange: (index) => setState(() {
             _currentIndex = index;
             _pageController.jumpToPage(_currentIndex);
+            appBarTitle = tabs[index];
           }),
           tabs: [
             GButton(
               icon: CupertinoIcons.chat_bubble_2_fill,
-              text: 'Chat',
+              text: S.of(context).chat,
             ),
             GButton(
               icon: CupertinoIcons.game_controller_solid,
-              text: 'Games'
+              text: S.of(context).games
             ),
             GButton(
               icon: Icons.home,
-              text: 'Profile'
+              text: S.of(context).profile
             )
-          ]
+          ],
       )
     );
   }

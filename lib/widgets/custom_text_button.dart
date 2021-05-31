@@ -28,12 +28,13 @@ class CustomTextButton extends StatelessWidget {
                       child: Icon(Icons.lock, color: Theme.of(context).textTheme.headline2!.color,)
                   )
               ),
-            TextSpan(text: title)
+            TextSpan(text: title),
           ]
         ),
 
       ),
-      fillColor: canPress ? Theme.of(context).accentColor : Theme.of(context).primaryColor.withOpacity(0.6),
+      fillColor: Theme.of(context).accentColor,
+      //canPress ? Theme.of(context).accentColor : Theme.of(context).primaryColor.withOpacity(0.6),
       shape: Theme.of(context).buttonTheme.shape,
     );
   }
