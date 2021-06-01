@@ -40,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalid_password":
             MessageLookupByLibrary.simpleMessage("Invalid password"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "no_messages_yet":
+            MessageLookupByLibrary.simpleMessage("No messages yet"),
         "not_registered_yet":
             MessageLookupByLibrary.simpleMessage("Not registered yet?"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
@@ -54,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "I have read the privacy policy and am ready to receive advertising information"),
         "user_with_such_data_already_exists":
             MessageLookupByLibrary.simpleMessage(
-                "A user with such data already exists")
+                "A user with such data already exists"),
+        "your_message": MessageLookupByLibrary.simpleMessage("Your message...")
       };
 }

@@ -20,5 +20,7 @@
   "global_chat": "Глобальный чат",
   "chat": "Чат",
   "games": "Игры",
-  "profile": "Профиль"
+  "profile": "Профиль",
+  "no_messages_yet": "Сообщений пока нет",
+  "your_message": "Ваше сообщение..."
 }

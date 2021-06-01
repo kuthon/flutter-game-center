@@ -9,7 +9,7 @@ class DatabaseService {
   }
 
   Stream<List<MessageDomain>> getGlobalChatHistory() {
-    return _chatCollection.orderBy('date', descending: true).limitToLast(30).snapshots()
+    return _chatCollection.orderBy('date', descending: true).limit(30).snapshots()
         .map((QuerySnapshot data) => data.docs
           .map((QueryDocumentSnapshot doc) =>
             MessageDomain.fromJSON(doc.data())).toList());

@@ -259,6 +259,26 @@ class S {
       args: [],
     );
   }
+
+  /// `No messages yet`
+  String get no_messages_yet {
+    return Intl.message(
+      'No messages yet',
+      name: 'no_messages_yet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your message...`
+  String get your_message {
+    return Intl.message(
+      'Your message...',
+      name: 'your_message',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

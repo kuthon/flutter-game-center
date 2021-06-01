@@ -40,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalid_password":
             MessageLookupByLibrary.simpleMessage("Неверный пароль"),
         "login": MessageLookupByLibrary.simpleMessage("Войти"),
+        "no_messages_yet":
+            MessageLookupByLibrary.simpleMessage("Сообщений пока нет"),
         "not_registered_yet":
             MessageLookupByLibrary.simpleMessage("Ещё не зарегистрированы?"),
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
@@ -54,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Я ознакомился с политикой конфиденциальности и готов получать рекламную информацию"),
         "user_with_such_data_already_exists":
             MessageLookupByLibrary.simpleMessage(
-                "Пользователь с такими данными уже существует")
+                "Пользователь с такими данными уже существует"),
+        "your_message":
+            MessageLookupByLibrary.simpleMessage("Ваше сообщение...")
       };
 }

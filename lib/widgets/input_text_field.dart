@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class InputTextField extends StatefulWidget {
 
@@ -50,6 +51,7 @@ class _InputTextFieldState extends State<InputTextField> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
       child: TextFormField(
+            maxLength: 80,
             controller: textEditingController,
             obscureText: obscure,
             decoration: InputDecoration(

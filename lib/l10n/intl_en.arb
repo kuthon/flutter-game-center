@@ -20,5 +20,7 @@
   "global_chat": "Global сhat",
   "chat": "Chat",
   "games": "Games",
-  "profile": "Profile"
+  "profile": "Profile",
+  "no_messages_yet": "No messages yet",
+  "your_message": "Your message..."
 }
