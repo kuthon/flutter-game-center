@@ -3,6 +3,7 @@ import 'package:cocos_game/services/auth_service.dart';
 import 'package:cocos_game/services/error_handler.dart';
 import 'package:cocos_game/widgets/custom_text_button.dart';
 import 'package:cocos_game/widgets/input_text_field.dart';
+import 'package:cocos_game/widgets/show_loading.dart';
 import 'package:flutter/material.dart';
 
 
@@ -32,6 +33,7 @@ class _AuthPageState extends State<AuthPage> {
     void _register() async{
         await _authService.registerWithEmailAndPassword(_loginEditingController.text.trim(), _passwordEditingController.text.trim())
           .catchError((e) => ErrorHandler(error: e, context: context).showErrorMessage());
+
     }
 
     void _forgotPassword() async{
@@ -106,7 +108,11 @@ class _AuthPageState extends State<AuthPage> {
                       ),
                     ),
                     CustomTextButton(
-                        title: S.of(context).login, onTap: () => _login()),
+                        title:
+                        S.of(context).login,
+                        onTap: () => showLoading(
+                            context: context,
+                            function: _login)),
                     TextButton(
                         onPressed: () { setState(() { showLoginPage = false; }); },
                         child: Text(
@@ -133,7 +139,10 @@ class _AuthPageState extends State<AuthPage> {
                     CustomTextButton(
                         title: S.of(context).register, onTap: () {
                           if (isAgreement)
-                              _register();
+                            showLoading(
+                                context: context,
+                                function: _register
+                            );
                           },
                         canPress: isAgreement,
                         ),

@@ -1,7 +1,7 @@
 import 'package:cocos_game/domain/message_domain.dart';
 import 'package:cocos_game/domain/user_domain.dart';
 import 'package:cocos_game/generated/l10n.dart';
-import 'package:cocos_game/services/db_service.dart';
+import 'package:cocos_game/services/chat_service.dart';
 import 'package:cocos_game/widgets/input_text_field.dart';
 import 'package:cocos_game/widgets/message.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +14,8 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  late UserDomain user;
-  DatabaseService db = DatabaseService();
+  late final UserDomain user;
+  ChatService _chatService = ChatService();
   List<MessageDomain>? _chatHistory;
   TextEditingController _textEditingController = TextEditingController();
   ScrollController _scrollController = ScrollController();
@@ -23,11 +23,18 @@ class _ChatPageState extends State<ChatPage> {
   @override
   void initState() {
     super.initState();
+
     loadData();
   }
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    user = Provider.of<UserDomain?>(context)!;
+  }
+
   Future<void> loadData() async {
-    var stream = db.getGlobalChatHistory();
+    var stream = _chatService.getHistory();
     stream.listen((List<MessageDomain> chatHistory) {
       if (mounted)
         setState(() {
@@ -38,7 +45,6 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    user = Provider.of<UserDomain?>(context)!;
 
     return Container(
       color: Theme.of(context).backgroundColor,
@@ -77,11 +83,12 @@ class _ChatPageState extends State<ChatPage> {
                     )),
                     IconButton(
                         onPressed: () {
-                          db.sendMessageToGlobalChat(MessageDomain(
+                          _chatService.sendMessage(MessageDomain(
                               text: _textEditingController.text.trim(),
                               author: user));
                           _textEditingController.clear();
-                          _scrollController.jumpTo(0);
+                          if (_scrollController.hasClients)
+                            _scrollController.jumpTo(0.0);
                         },
                         icon: Icon(
                           Icons.send,

@@ -1,6 +1,6 @@
 import 'package:cocos_game/generated/l10n.dart';
 import 'package:cocos_game/pages/chat_page.dart';
-import 'package:cocos_game/services/auth_service.dart';
+import 'package:cocos_game/pages/profile_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             ChatPage(),
             Container(color: Colors.red,),
-            Container(color: Colors.green, child: TextButton(child: Text('da'), onPressed: ()=> AuthService().logOut(),),),
+            ProfilePage(),
           ],
         ),
       ),

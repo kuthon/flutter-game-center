@@ -175,6 +175,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.3"
+  loading_alert_dialog:
+    dependency: "direct main"
+    description:
+      name: loading_alert_dialog
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0+2"
   loading_indicator:
     dependency: "direct main"
     description:

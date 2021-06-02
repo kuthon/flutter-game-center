@@ -22,5 +22,6 @@
   "games": "Games",
   "profile": "Profile",
   "no_messages_yet": "No messages yet",
-  "your_message": "Your message..."
+  "your_message": "Your message...",
+  "please_wait": "Please wait..."
 }

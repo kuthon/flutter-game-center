@@ -1,4 +1,5 @@
 import 'package:cocos_game/domain/message_domain.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Message extends StatelessWidget {
@@ -17,6 +18,9 @@ class Message extends StatelessWidget {
         Flexible(
           fit: FlexFit.loose,
           child: Container(
+              constraints: BoxConstraints(
+                maxWidth: 320
+              ),
               margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               decoration: BoxDecoration(

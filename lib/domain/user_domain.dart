@@ -9,4 +9,22 @@ class UserDomain{
     this.username = user.email!;
   }
 
+  UserDomain.fromJSON(Object? user){
+    if(user is Map<String, dynamic>) {  //always true
+      this.uid = user['uid'];
+      this.username = user['username'];
+    }
+  }
+
+  @override
+  String toString() {
+    return 'User(uid: $uid, username: $username)';
+  }
+
+  Map<String, dynamic> toMap(){
+    return {
+      'uid': uid,
+      'username': username,
+    };
+  }
 }

@@ -47,6 +47,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
         "password_is_too_short":
             MessageLookupByLibrary.simpleMessage("Пароль слишком короткий"),
+        "please_wait":
+            MessageLookupByLibrary.simpleMessage("Пожалуйста, подождите..."),
         "profile": MessageLookupByLibrary.simpleMessage("Профиль"),
         "register": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
         "registration": MessageLookupByLibrary.simpleMessage("Регистрация"),

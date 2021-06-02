@@ -47,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "password_is_too_short":
             MessageLookupByLibrary.simpleMessage("Password is too short"),
+        "please_wait": MessageLookupByLibrary.simpleMessage("Please wait..."),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
