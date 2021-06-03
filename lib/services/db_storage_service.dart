@@ -14,19 +14,19 @@ class DbStorageService {
     return url;
   }
 
-  static Future<String?> uploadImageFrom({required ImageSource source}) async {
+  static Future<String?> uploadImage({required ImageSource source}) async {
     String? url;
     final PickedFile? image = await ImagePicker().getImage(source: source);
 
     if (image != null) {
       final imageFile = File(image.path);
-      url = await _uploadFile(file: imageFile, name: "image");
+      url = await _uploadFile(file: imageFile, name: "users/avatars/");
     }
 
     return url;
   }
 
-  static Future<String?> uploadVideoFrom({required ImageSource source}) async {
+  static Future<String?> uploadVideo({required ImageSource source}) async {
     String? url;
     final PickedFile? video = await ImagePicker().getVideo(source: source);
 

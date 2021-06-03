@@ -21,7 +21,7 @@ class _ChatPageState extends State<ChatPage> {
   ScrollController _scrollController = ScrollController();
 
   @override
-  void initState() {
+  void initState(){
     super.initState();
 
     loadData();
