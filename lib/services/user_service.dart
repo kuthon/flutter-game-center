@@ -6,22 +6,17 @@ class UserService {
 
   final CollectionReference _userCollection = FirebaseFirestore.instance.collection('user');
 
-  Future createUser(User user) async {
+  Future<void> createUser(User user) async {
 
-    Map<String, dynamic> update = {
-      'uid': user.uid,
-      'username': user.email,
-    };
+    Map<String, dynamic> newUser = UserDomain.fromFirebase(user).toMap();
 
-    await _userCollection.doc().set(update);
+    await _userCollection.doc().set(newUser);
   }
 
-  Future updateUser(UserDomain user, {String? username}) async {
-    Map<String, dynamic> update = user.toMap();
+  Future<void> updateUser({required UserDomain user}) async {
+    Map<String, dynamic> updateUser = user.toMap();
 
-    update['username'] = username ?? update['username'];
-
-    await _userCollection.doc().set(update);
+    await _userCollection.doc().set(updateUser);
   }
 
    Future<UserDomain?> getUserById(String uid) async {

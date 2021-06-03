@@ -43,9 +43,20 @@ class _ChatPageState extends State<ChatPage> {
     });
   }
 
+  Future<void> sendMessage() async {
+    {
+      if (_textEditingController.text.isNotEmpty) {
+        _chatService.sendMessage(MessageDomain(
+            text: _textEditingController.text.trim(), author: user)
+        );
+        _textEditingController.clear();
+        if (_scrollController.hasClients) _scrollController.jumpTo(0.0);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-
     return Container(
       color: Theme.of(context).backgroundColor,
       child: (_chatHistory != null)
@@ -82,14 +93,7 @@ class _ChatPageState extends State<ChatPage> {
                       hint: '${S.of(context).your_message}',
                     )),
                     IconButton(
-                        onPressed: () {
-                          _chatService.sendMessage(MessageDomain(
-                              text: _textEditingController.text.trim(),
-                              author: user));
-                          _textEditingController.clear();
-                          if (_scrollController.hasClients)
-                            _scrollController.jumpTo(0.0);
-                        },
+                        onPressed: () => sendMessage(),
                         icon: Icon(
                           Icons.send,
                           size: 30,
