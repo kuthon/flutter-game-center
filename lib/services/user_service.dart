@@ -10,13 +10,13 @@ class UserService {
 
     Map<String, dynamic> newUser = UserDomain.fromFirebase(user).toMap();
 
-    await _userCollection.doc().set(newUser);
+    await _userCollection.doc(user.uid).set(newUser);
   }
 
   Future<void> updateUser({required UserDomain user}) async {
     Map<String, dynamic> updateUser = user.toMap();
-
-    await _userCollection.doc().set(updateUser);
+    print(updateUser);
+    await _userCollection.doc(user.uid).update(updateUser);
   }
 
    Future<UserDomain?> getUserById(String uid) async {

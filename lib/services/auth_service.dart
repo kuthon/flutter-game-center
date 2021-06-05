@@ -42,7 +42,7 @@ class AuthService {
       return _fAuth.authStateChanges().asyncMap((User? user) async {
           if (user != null) {
             UserDomain? _userDomain = await UserService().getUserById(user.uid);
-            print('1 - $_userDomain');
+            print('$_userDomain');
             return _userDomain;
           }
           return null;

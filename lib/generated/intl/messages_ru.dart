@@ -27,10 +27,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "already_registered":
             MessageLookupByLibrary.simpleMessage("Уже зарегистрированы?"),
         "auth": MessageLookupByLibrary.simpleMessage("Авторизация"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Изображение профиля"),
         "chat": MessageLookupByLibrary.simpleMessage("Чат"),
+        "edit": MessageLookupByLibrary.simpleMessage("Редактировать"),
+        "editing": MessageLookupByLibrary.simpleMessage("Редактирование"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "email_is_incorrect": MessageLookupByLibrary.simpleMessage(
             "Адрес электронной почты недействителен"),
+        "exit": MessageLookupByLibrary.simpleMessage("Выйти"),
         "fill_in_all_the_required_data": MessageLookupByLibrary.simpleMessage(
             "Заполните все необходимые данные"),
         "forgot_your_password":
@@ -54,11 +58,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "registration": MessageLookupByLibrary.simpleMessage("Регистрация"),
         "sent_account_recovery_instruction": MessageLookupByLibrary.simpleMessage(
             "На указанную почту отправлена инструкиця по восстановлению аккаунта"),
+        "status": MessageLookupByLibrary.simpleMessage("Статус"),
+        "upload": MessageLookupByLibrary.simpleMessage("Загрузить"),
         "user_agreement": MessageLookupByLibrary.simpleMessage(
             "Я ознакомился с политикой конфиденциальности и готов получать рекламную информацию"),
         "user_with_such_data_already_exists":
             MessageLookupByLibrary.simpleMessage(
                 "Пользователь с такими данными уже существует"),
+        "username": MessageLookupByLibrary.simpleMessage("Имя пользователя"),
         "your_message":
             MessageLookupByLibrary.simpleMessage("Ваше сообщение...")
       };

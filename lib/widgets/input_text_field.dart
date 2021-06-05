@@ -49,7 +49,7 @@ class _InputTextFieldState extends State<InputTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
             inputFormatters: [
               LengthLimitingTextInputFormatter(80),
@@ -66,11 +66,11 @@ class _InputTextFieldState extends State<InputTextField> {
                   borderSide: BorderSide(
                       color: Theme.of(context).primaryColor, width: 2,
                   ),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(3),
               ),
               enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 1),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(3),
               ),
               suffixIcon: canChangeObscure ? IconButton(
                 icon: Icon(icon, color: Theme.of(context).primaryColor,),

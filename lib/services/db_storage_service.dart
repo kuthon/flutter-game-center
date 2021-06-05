@@ -16,8 +16,12 @@ class DbStorageService {
 
   static Future<String?> uploadImage({required ImageSource source}) async {
     String? url;
-    final PickedFile? image = await ImagePicker().getImage(source: source);
-
+    final PickedFile? image = await ImagePicker().getImage(
+        source: source,
+        maxWidth: 200,
+        maxHeight: 200,
+        imageQuality: 85
+    );
     if (image != null) {
       final imageFile = File(image.path);
       url = await _uploadFile(file: imageFile, name: "users/avatars/");

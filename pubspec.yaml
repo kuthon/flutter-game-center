@@ -39,6 +39,7 @@ dependencies:
   loading_alert_dialog: ^1.0.0+2
   firebase_storage: ^8.1.0
   image_picker: ^0.8.0
+  flutter_native_splash: ^1.1.8+4
 
 
   flutter_localizations:

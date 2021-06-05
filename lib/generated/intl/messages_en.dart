@@ -27,10 +27,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "already_registered":
             MessageLookupByLibrary.simpleMessage("Already registered?"),
         "auth": MessageLookupByLibrary.simpleMessage("Authorization"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Profile picture"),
         "chat": MessageLookupByLibrary.simpleMessage("Chat"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "editing": MessageLookupByLibrary.simpleMessage("Editing"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "email_is_incorrect":
             MessageLookupByLibrary.simpleMessage("Email is incorrect"),
+        "exit": MessageLookupByLibrary.simpleMessage("Exit"),
         "fill_in_all_the_required_data": MessageLookupByLibrary.simpleMessage(
             "Fill in all the required data"),
         "forgot_your_password":
@@ -53,11 +57,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
         "sent_account_recovery_instruction": MessageLookupByLibrary.simpleMessage(
             "An account recovery instruction has been sent to the specified mail"),
+        "status": MessageLookupByLibrary.simpleMessage("Status"),
+        "upload": MessageLookupByLibrary.simpleMessage("Upload"),
         "user_agreement": MessageLookupByLibrary.simpleMessage(
             "I have read the privacy policy and am ready to receive advertising information"),
         "user_with_such_data_already_exists":
             MessageLookupByLibrary.simpleMessage(
                 "A user with such data already exists"),
+        "username": MessageLookupByLibrary.simpleMessage("Username"),
         "your_message": MessageLookupByLibrary.simpleMessage("Your message...")
       };
 }
