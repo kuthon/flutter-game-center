@@ -38,9 +38,9 @@ class AuthService {
     }
   }
 
-  Stream<UserDomain?> get currentUser {
+  Stream<UserDomain?> get streamUser {
       return _fAuth.authStateChanges().asyncMap((User? user) async {
-          if (user != null) {
+        if (user != null) {
             UserDomain? _userDomain = await UserService().getUserById(user.uid);
             print('$_userDomain');
             return _userDomain;
@@ -48,9 +48,14 @@ class AuthService {
           return null;
       });
   }
+
+  Future<UserDomain?> get onceUser {
+    return _fAuth.authStateChanges().first.then((data) async{
+      if (data != null) {
+        UserDomain? _userDomain = await UserService().getUserById(data.uid);
+        print('$_userDomain');
+        return _userDomain;
+      }
+    });
+  }
 }
-
-//<UserDomain?>
-
-//return _fAuth.authStateChanges().map((User? user) => user != null ?
-// UserDomain.fromFirebase(user) : null);

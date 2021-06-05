@@ -20,10 +20,10 @@ class DbStorageService {
         source: source,
         maxWidth: 200,
         maxHeight: 200,
-        imageQuality: 85
+        imageQuality: 70,
     );
     if (image != null) {
-      final imageFile = File(image.path);
+      final File imageFile = File(image.path);
       url = await _uploadFile(file: imageFile, name: "users/avatars/");
     }
 

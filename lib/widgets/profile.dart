@@ -23,22 +23,24 @@ class Profile extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    margin: const EdgeInsets.all(15),
-                    width: 120,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(user.avatar)
+
+                    Container(
+                      margin: const EdgeInsets.all(15),
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(user.avatar)
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(50)),
+                        border: Border.all(width: 1, color: Colors.black),
+                        color: Colors.white,
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(60)),
-                      border: Border.all(width: 1, color: Colors.black),
-                      color: Colors.white,
                     ),
-                  ),
                   Flexible(
                     fit: FlexFit.tight,
+                    flex: 2,
                     child: Container(
                       height: 120,
                       child: Column(

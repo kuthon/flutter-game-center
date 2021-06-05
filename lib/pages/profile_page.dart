@@ -27,36 +27,40 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
 
-    return Column(
-      children: [
-        Profile(user),
-        TextButton(
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => EditProfilePage(user: user))
-              );
-              },
-            child: Text(
-                S.of(context).edit,
-              style: Theme.of(context).textTheme.headline4,
-            )
-        ),
-        Container(
-          child: TextButton(
+    return Container(
+      color: Theme.of(context).backgroundColor,
+      width: double.infinity,
+      child: Column(
+        children: [
+          Profile(user),
+          TextButton(
               onPressed: (){
-                AuthService().logOut();
-              },
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => EditProfilePage(user: user))
+                );
+                },
               child: Text(
-                S.of(context).exit,
-                style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 18
-                ),
+                  S.of(context).edit,
+                style: Theme.of(context).textTheme.headline4,
               )
           ),
-        )
+          Container(
+            child: TextButton(
+                onPressed: (){
+                  AuthService().logOut();
+                },
+                child: Text(
+                  S.of(context).exit,
+                  style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 18
+                  ),
+                )
+            ),
+          )
 
-      ],
+        ],
+      ),
     );
   }
 }

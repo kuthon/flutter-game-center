@@ -1,5 +1,6 @@
 import 'package:cocos_game/generated/l10n.dart';
 import 'package:cocos_game/pages/chat_page.dart';
+import 'package:cocos_game/pages/game_page.dart';
 import 'package:cocos_game/pages/profile_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class _HomePageState extends State<HomePage> {
           },
           children: <Widget>[
             ChatPage(),
-            Container(color: Colors.red,),
+            GamePage(),
             ProfilePage(),
           ],
         ),

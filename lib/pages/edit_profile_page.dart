@@ -28,6 +28,7 @@ class EditProfilePage extends StatelessWidget {
     Navigator.pop(context);
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +50,7 @@ class EditProfilePage extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.all(10),
+        color: Theme.of(context).backgroundColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -8,11 +8,16 @@ class ChatService {
     await _chatCollection.doc().set(message.toMap());
   }
 
-  Stream<List<MessageDomain>> getHistory() {
+  Stream<List<MessageDomain>> streamChat() {
     return _chatCollection.orderBy('date', descending: true).limit(30).snapshots()
         .map((QuerySnapshot data) => data.docs
           .map((QueryDocumentSnapshot doc) =>
             MessageDomain.fromJSON(doc.data())).toList());
+  }
+
+  Future<List<MessageDomain>> onceChat() async{
+    return await _chatCollection.orderBy('date', descending: true).limit(30).snapshots()
+        .map((value) => MessageDomain.fromJSON(value.docs.first.data())).toList();
   }
 
 }

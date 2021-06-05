@@ -6,11 +6,13 @@ class MessageDomain {
   late final String text;
   late final String username;
   late final Timestamp date;
+  late final String avatar;
 
 
   MessageDomain({required this.text, required UserDomain author, Timestamp? date}){
     this.uid = author.uid;
     this.username = author.username;
+    this.avatar = author.avatar;
     this.date = date ?? Timestamp.now();
   }
 
@@ -20,6 +22,7 @@ class MessageDomain {
       this.text = message['text'];
       this.username = message['username'];
       this.date = message['date'];
+      this.avatar = message['avatar'];
     }
   }
 
@@ -29,13 +32,14 @@ class MessageDomain {
       'uid': uid,
       'text': text,
       'username': username,
-      'date': date
+      'date': date,
+      'avatar': avatar,
     };
   }
 
   @override
   String toString() {
-    return '$MessageDomain(uid: $uid, text: $text, username: $username, date: $date)';
+    return '$MessageDomain(uid: $uid, text: $text, username: $username, date: $date, avatar: $avatar)';
   }
 
 }

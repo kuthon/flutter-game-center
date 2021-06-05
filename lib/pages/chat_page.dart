@@ -34,7 +34,7 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   Future<void> loadData() async {
-    var stream = _chatService.getHistory();
+    var stream = _chatService.streamChat();
     stream.listen((List<MessageDomain> chatHistory) {
       if (mounted)
         setState(() {
@@ -58,6 +58,7 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.all(2),
       color: Theme.of(context).backgroundColor,
       child: (_chatHistory != null)
           ? Column(
