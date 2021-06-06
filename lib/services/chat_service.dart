@@ -16,8 +16,11 @@ class ChatService {
   }
 
   Future<List<MessageDomain>> onceChat() async{
-    return await _chatCollection.orderBy('date', descending: true).limit(30).snapshots()
-        .map((value) => MessageDomain.fromJSON(value.docs.first.data())).toList();
+    return await _chatCollection.orderBy('date', descending: true).limit(30).get()
+        .then((chat) {
+          return chat.docs.map((message) => MessageDomain.fromJSON(message.data())).toList();
+    });
+
   }
 
 }

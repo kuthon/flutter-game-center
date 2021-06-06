@@ -3,6 +3,7 @@ import 'package:cocos_game/pages/start_app_page.dart';
 import 'package:cocos_game/precache/precache.dart';
 import 'package:cocos_game/services/auth_service.dart';
 import 'package:cocos_game/themes/theme.dart';
+import 'package:cocos_game/utils/vars.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: Future.microtask(() => precache()),
+        future: Future( () => precache(context)),
+        //Future.microtask(() => precache())
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return MaterialApp(
@@ -54,13 +56,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// return FutureBuilder(
-// future: Future.microtask(() => precache),
-// builder: (context, AsyncSnapshot snapshot) {
-// if (snapshot.connectionState == ConnectionState.waiting) {
-// return MaterialApp(home: SplashPage(), debugShowCheckedModeBanner: false,);
-// } else {
-// return isLoggedIn ? HomePage() : AuthPage();
-// }
-// },
-// );

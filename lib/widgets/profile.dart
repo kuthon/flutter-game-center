@@ -1,4 +1,5 @@
 import 'package:cocos_game/domain/user_domain.dart';
+import 'package:cocos_game/utils/vars.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
