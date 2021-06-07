@@ -1,4 +1,4 @@
-# cocos_game
+# cocos_game_center
 
 A new Flutter application.
 
