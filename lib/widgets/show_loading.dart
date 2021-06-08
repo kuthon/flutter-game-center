@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:loading_alert_dialog/loading_alert_dialog.dart';
 
 
-showLoading({required BuildContext context, required Function function}) async {
-  LoadingAlertDialog.showLoadingAlertDialog(
+showLoading({required BuildContext context, required Function function }) async {
+  await LoadingAlertDialog.showLoadingAlertDialog(
       context: context,
       builder: (context,) => Center(
         child: Card(
@@ -21,8 +21,6 @@ showLoading({required BuildContext context, required Function function}) async {
           color: Colors.white,
         ),
       ),
-      computation: Future.microtask(() => function())
-  );
+      computation: await Future.microtask(() => function())
+  ).catchError((e) => throw e);
 }
-
-

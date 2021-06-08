@@ -4,7 +4,9 @@ import 'package:cocos_game/services/error_handler.dart';
 import 'package:cocos_game/widgets/custom_text_button.dart';
 import 'package:cocos_game/widgets/input_text_field.dart';
 import 'package:cocos_game/widgets/show_loading.dart';
+import 'package:cocos_game/widgets/show_toast.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 
@@ -26,20 +28,25 @@ class _AuthPageState extends State<AuthPage> {
   Widget build(BuildContext context) {
 
     void _login() async{
+
         await _authService.signInWithEmailAndPassword(_loginEditingController.text.trim(), _passwordEditingController.text.trim())
           .catchError((e) => ErrorHandler(error: e, context: context).showErrorMessage());
+
     }
 
     void _register() async{
-        await _authService.registerWithEmailAndPassword(_loginEditingController.text.trim(), _passwordEditingController.text.trim())
-          .catchError((e) => ErrorHandler(error: e, context: context).showErrorMessage());
+      showLoading(
+
+          context: context,
+          function: await _authService.registerWithEmailAndPassword(_loginEditingController.text.trim(), _passwordEditingController.text.trim())
+
+      ).catchError((e) => ErrorHandler(error: e, context: context).showErrorMessage());
 
     }
 
     void _forgotPassword() async{
         await _authService.sendPasswordResetEmail(email: _loginEditingController.text.trim())
             .catchError((e) => ErrorHandler(error: e, context: context).showErrorMessage());
-
 
     }
 
@@ -110,9 +117,8 @@ class _AuthPageState extends State<AuthPage> {
                     CustomTextButton(
                         title:
                         S.of(context).login,
-                        onTap: () => showLoading(
-                            context: context,
-                            function: _login)),
+                        onTap: _login
+                    ),
                     TextButton(
                         onPressed: () { setState(() { showLoginPage = false; }); },
                         child: Text(
@@ -139,10 +145,7 @@ class _AuthPageState extends State<AuthPage> {
                     CustomTextButton(
                         title: S.of(context).register, onTap: () {
                           if (isAgreement)
-                            showLoading(
-                                context: context,
-                                function: _register
-                            );
+                            _register();
                           },
                         canPress: isAgreement,
                         ),

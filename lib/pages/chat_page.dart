@@ -14,6 +14,7 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+
   late final UserDomain user;
   ChatService _chatService = ChatService();
   List<MessageDomain>? _chatHistory;
@@ -23,7 +24,6 @@ class _ChatPageState extends State<ChatPage> {
   @override
   void initState(){
     super.initState();
-
     loadData();
   }
 
