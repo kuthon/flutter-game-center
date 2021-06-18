@@ -44,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalid_password":
             MessageLookupByLibrary.simpleMessage("Invalid password"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "meteor_rain": MessageLookupByLibrary.simpleMessage("Meteor Rain"),
         "no_messages_yet":
             MessageLookupByLibrary.simpleMessage("No messages yet"),
         "not_registered_yet":

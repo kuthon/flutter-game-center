@@ -30,5 +30,6 @@
   "status": "Status",
   "avatar": "Profile picture",
   "upload": "Upload",
-  "exit": "Exit"
+  "exit": "Exit",
+  "meteor_rain": "Meteor Rain"
 }

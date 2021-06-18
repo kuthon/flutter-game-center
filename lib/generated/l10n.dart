@@ -359,6 +359,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Meteor Rain`
+  String get meteor_rain {
+    return Intl.message(
+      'Meteor Rain',
+      name: 'meteor_rain',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

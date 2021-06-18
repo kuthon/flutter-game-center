@@ -1,4 +1,5 @@
 import 'package:cocos_game/games/meteor_rain_game/meteor_rain_game.dart';
+import 'package:cocos_game/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -31,12 +32,11 @@ class GamePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Icon(
-                    Icons.play_arrow,
-                    size: 30,
-                  ),
+                  Flexible(
+                    fit: FlexFit.loose,
+                      child: Image.asset('assets/games/images/meteor_rain_icon.png')),
                   Text(
-                    'Meteor Rain',
+                    '${S.of(context).meteor_rain}',
                     style: Theme.of(context).textTheme.headline5,
                     softWrap: true,
                     overflow: TextOverflow.fade,
