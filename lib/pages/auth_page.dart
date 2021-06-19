@@ -23,28 +23,32 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     void _login() async {
-      try {
-        showLoading(
+      String? _error;
+        await showLoading(
             context: context,
             function: () async => await _authService.signInWithEmailAndPassword(
                 _loginEditingController.text.trim(),
-                _passwordEditingController.text.trim()));
-      } on String catch (e) {
-        ErrorHandler(error: e, context: context).showErrorMessage();
-      }
+                _passwordEditingController.text.trim()
+            ).catchError((e) => _error = e));
+
+        if (_error != null)
+          ErrorHandler(error: _error!, context: context).showErrorMessage();
+
     }
 
-    void _register() {
-      try {
-        showLoading(
+    void _register() async{
+      String? _error;
+        await showLoading(
             context: context,
             function: () async =>
                 await _authService.registerWithEmailAndPassword(
                     _loginEditingController.text.trim(),
-                    _passwordEditingController.text.trim()));
-      } on String catch (e) {
-        ErrorHandler(error: e, context: context).showErrorMessage();
-      }
+                    _passwordEditingController.text.trim()
+                ).catchError((e) => _error = e));
+
+        if (_error != null)
+          ErrorHandler(error: _error!, context: context).showErrorMessage();
+
     }
 
     void _forgotPassword() async {

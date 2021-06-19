@@ -7,7 +7,6 @@ class ErrorHandler {
   final String error;
   late String msg;
   ErrorHandler({required this.error, required this.context}) {
-    print('error: $error');
     switch (error) {
       case 'invalid-email':
         msg = S.of(context).email_is_incorrect;
@@ -30,6 +29,7 @@ class ErrorHandler {
       default:
         msg = error;
     }
+    print('ErrorHandler: $error -> $msg');
   }
 
   void showErrorMessage(){

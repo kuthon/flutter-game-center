@@ -13,6 +13,6 @@ void precache(BuildContext context) async{
 
   List<MessageDomain> _chat = await ChatService().onceChat();
   for (MessageDomain _message in _chat)
-    await precacheImage(NetworkImage(_message.avatar), context);
+    precacheImage(NetworkImage(_message.avatar), context);
 
 }
